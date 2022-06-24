@@ -1,12 +1,15 @@
 import propTypes from 'prop-types';
 
 export const FriendList = ({ friends }) => {
-  console.log(friends);
   return (
     <ul className="friend-list">
       {friends.map(friend => (
         <li className="item" key={friend.id}>
-          <span className="status" status={friend.isOnline}></span>
+          {friend.isOnline ? (
+            <span className="status online"></span>
+          ) : (
+            <span className="status offline"></span>
+          )}
           <img
             className="avatar"
             src={friend.avatar}
@@ -21,7 +24,7 @@ export const FriendList = ({ friends }) => {
 };
 
 FriendList.propTypes = {
-  friends: propTypes.shape({
+  friend: propTypes.exact({
     // isOnline: propTypes.string.isRequired,
     name: propTypes.string.isRequired,
     avatar: propTypes.string,
