@@ -1,4 +1,6 @@
 import { UserCardFooter } from 'components/UserCardFooter/UserCardFooter';
+import propTypes from 'prop-types';
+
 export const UserCard = ({ username, tag, location, avatar, stats }) => {
   return (
     <div className="description">
@@ -9,4 +11,12 @@ export const UserCard = ({ username, tag, location, avatar, stats }) => {
       <UserCardFooter stats={stats}></UserCardFooter>
     </div>
   );
+};
+
+UserCard.propTypes = {
+  username: propTypes.string.isRequired,
+  tag: propTypes.string.isRequired,
+  location: propTypes.string.isRequired,
+  avatar: propTypes.string.isRequired,
+  stats: propTypes.objectOf(propTypes.number.isRequired),
 };
