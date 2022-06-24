@@ -27,10 +27,10 @@ export const TransactionHistory = props => {
   );
 };
 
-TransactionHistory.propTypes = {
+// TransactionHistory.propTypes = {
   //   friend: propTypes.exact({
   //     // isOnline: propTypes.string.isRequired,
   //     name: propTypes.string.isRequired,
   //     avatar: propTypes.string,
   //   }),
-};
+// };
