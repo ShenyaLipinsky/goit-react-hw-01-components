@@ -1,19 +1,28 @@
 import propTypes from 'prop-types';
+import { setColor } from 'components/Applications/RandomColor';
+import {
+  Title,
+  StatList,
+  StatListItem,
+  StatLabel,
+  StatPercentage,
+} from './Statistics.styled';
+import { Box } from '../Box';
 
 export const Statistics = ({ title, stats }) => {
   return (
-    <section className="statistics">
-      <h2 className="title">{title}</h2>
+    <Box mt={3} mx="auto" maxWidth={3} bg="secondary" borderRadius="normal">
+      <Title>{title}</Title>
 
-      <ul className="stat-list">
+      <StatList>
         {stats.map(stat => (
-          <li className="item" key={stat.id}>
-            <span className="label">{stat.label}</span>
-            <span className="percentage">{stat.percentage}%</span>
-          </li>
+          <StatListItem key={stat.id} id={stat.id} backgroundColor={setColor()}>
+            <StatLabel>{stat.label}</StatLabel>
+            <StatPercentage>{stat.percentage}%</StatPercentage>
+          </StatListItem>
         ))}
-      </ul>
-    </section>
+      </StatList>
+    </Box>
   );
 };
 

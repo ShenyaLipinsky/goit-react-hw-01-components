@@ -1,15 +1,17 @@
-import userData from '../user';
-import statData from '../data';
-import friends from '../friends';
-import transactions from '../transactions';
+import userData from './Profile/user';
+import statData from './Statistics/data';
+import friends from './FriendList/friends';
+import transactions from './TransactionHistory/transactions';
+
 import { Profile } from './Profile/Profile';
 import { Statistics } from './Statistics/Statistics';
 import { FriendList } from './FriendList/FriendList';
 import { TransactionHistory } from './TransactionHistory/TransactionHistory';
+// import { Box } from './Box';
 
 export const App = () => {
   return (
-    <div>
+    <>
       <Profile
         key={userData.tag}
         username={userData.username}
@@ -21,6 +23,6 @@ export const App = () => {
       <Statistics title="UPLOAD STATS" stats={statData} />
       <FriendList friends={friends} />
       <TransactionHistory items={transactions} />
-    </div>
+    </>
   );
 };

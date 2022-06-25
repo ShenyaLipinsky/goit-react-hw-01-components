@@ -1,8 +1,8 @@
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 
-export const TransactionHistory = props => {
+export const TransactionHistory = ({ items }) => {
   return (
-    <table class="transaction-history">
+    <table className="transaction-history">
       <thead>
         <tr>
           <th>Type</th>
@@ -12,25 +12,22 @@ export const TransactionHistory = props => {
       </thead>
 
       <tbody>
-        <tr>
-          <td>Invoice</td>
-          <td>125</td>
-          <td>USD</td>
-        </tr>
-        <tr>
-          <td>Withdrawal</td>
-          <td>85</td>
-          <td>USD</td>
-        </tr>
+        {items.map(item => (
+          <tr key={item.id}>
+            <td>{item.type}</td>
+            <td>{item.amount}</td>
+            <td>{item.currency}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
 };
 
-// TransactionHistory.propTypes = {
-  //   friend: propTypes.exact({
-  //     // isOnline: propTypes.string.isRequired,
-  //     name: propTypes.string.isRequired,
-  //     avatar: propTypes.string,
-  //   }),
-// };
+TransactionHistory.propTypes = {
+  item: propTypes.exact({
+    type: propTypes.string.isRequired,
+    amount: propTypes.string.isRequired,
+    currency: propTypes.string.isRequired,
+  }),
+};
