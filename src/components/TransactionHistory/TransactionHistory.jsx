@@ -1,26 +1,41 @@
 import propTypes from 'prop-types';
+import {
+  TableTitle,
+  TableRow,
+  TableDescription,
+} from './TransactionHistory.styled';
+
+import { Box } from '../Box';
 
 export const TransactionHistory = ({ items }) => {
   return (
-    <table className="transaction-history">
+    <Box
+      mt={3}
+      mx="auto"
+      width={3}
+      textAlign="center"
+      borderRadius="normal"
+      boxShadow={'darkBox'}
+      as={'table'}
+    >
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+          <TableTitle>Type</TableTitle>
+          <TableTitle>Amount</TableTitle>
+          <TableTitle>Currency</TableTitle>
         </tr>
       </thead>
 
       <tbody>
         {items.map(item => (
-          <tr key={item.id}>
-            <td>{item.type}</td>
-            <td>{item.amount}</td>
-            <td>{item.currency}</td>
-          </tr>
+          <TableRow key={item.id}>
+            <TableDescription>{item.type}</TableDescription>
+            <TableDescription>{item.amount}</TableDescription>
+            <TableDescription>{item.currency}</TableDescription>
+          </TableRow>
         ))}
       </tbody>
-    </table>
+    </Box>
   );
 };
 

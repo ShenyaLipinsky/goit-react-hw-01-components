@@ -8,7 +8,7 @@ export const Description = styled.div`
   align-items: center;
 `;
 export const Avatar = styled.img`
-  width: 128px;
+  width: ${p => `${p.theme.sizes[1]}px`};
   background-color: ${p => p.theme.colors.background};
   border-radius: ${p => p.theme.radii.round};
 `;

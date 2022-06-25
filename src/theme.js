@@ -2,6 +2,8 @@ export const theme = {
   colors: {
     black: '#000',
     white: '#fff',
+    red: '#ff0000',
+    green: '#008000',
     text: '#2a2a2a',
     secondaryText: '#8b8b8b',
     background: '#696969',
@@ -37,25 +39,14 @@ export const theme = {
     none: 'none',
     normal: '1px solid',
   },
+  shadows: {
+    darkBox: '1px 1px 4px #000000',
+    darkText: ' 1px 1px 2px #000000',
+  },
   radii: {
     none: '0',
     normal: '4px',
     large: '8px',
     round: '50%',
-  },
-  styles: {
-    table: {
-      width: '100%',
-      borderCollapse: 'separate',
-      borderSpacing: 0,
-    },
-    th: {
-      textAlign: 'left',
-      borderBottomStyle: 'solid',
-    },
-    td: {
-      textAlign: 'left',
-      borderBottomStyle: 'solid',
-    },
   },
 };

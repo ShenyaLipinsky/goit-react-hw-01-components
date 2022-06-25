@@ -32,7 +32,7 @@ export const StatListItem = styled.li`
 export const StatLabel = styled.span`
   color: ${p => p.theme.colors.white};
   font-size: ${p => p.theme.fontSizes.s};
-  text-shadow: 1px 1px 2px black;
+  text-shadow: ${p => p.theme.shadows.darkText};
 `;
 export const StatPercentage = styled.span`
   color: ${p => p.theme.colors.white};
@@ -40,5 +40,5 @@ export const StatPercentage = styled.span`
   font-weight: ${p => p.theme.fontWeights.bold};
   margin-top: ${p => `${p.theme.space[2]}px`};
   line-height: ${p => p.theme.lineHeights.body};
-  text-shadow: 1px 1px 2px black;
+  text-shadow: ${p => p.theme.shadows.darkText};
 `;
