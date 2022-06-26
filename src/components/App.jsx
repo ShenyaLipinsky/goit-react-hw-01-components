@@ -13,7 +13,6 @@ export const App = () => {
   return (
     <>
       <Profile
-        key={userData.tag}
         username={userData.username}
         tag={userData.tag}
         location={userData.location}

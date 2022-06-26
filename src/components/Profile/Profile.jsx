@@ -11,7 +11,13 @@ import {
 } from './Profile.styled';
 import { Box } from '../Box';
 
-export const Profile = ({ username, tag, location, avatar, stats }) => {
+export const Profile = ({
+  username,
+  tag,
+  location,
+  avatar,
+  stats: { followers, views, likes },
+}) => {
   return (
     <Box
       // px={3}
@@ -22,7 +28,7 @@ export const Profile = ({ username, tag, location, avatar, stats }) => {
       bg="secondary"
       borderRadius="large"
     >
-      <Description>
+      <Description key={tag}>
         <Avatar src={avatar} alt="User avatar" />
         <Name>{username}</Name>
         <AdditionalInfo>@{tag}</AdditionalInfo>
@@ -30,15 +36,15 @@ export const Profile = ({ username, tag, location, avatar, stats }) => {
         <Stats>
           <StatsItem>
             <StatsLabel>Followers</StatsLabel>
-            <StatsQuantity>{stats.followers}</StatsQuantity>
+            <StatsQuantity>{followers}</StatsQuantity>
           </StatsItem>
           <StatsItem>
             <StatsLabel>Views</StatsLabel>
-            <StatsQuantity>{stats.views}</StatsQuantity>
+            <StatsQuantity>{views}</StatsQuantity>
           </StatsItem>
           <StatsItem>
             <StatsLabel>Likes</StatsLabel>
-            <StatsQuantity>{stats.likes}</StatsQuantity>
+            <StatsQuantity>{likes}</StatsQuantity>
           </StatsItem>
         </Stats>
       </Description>
@@ -51,5 +57,9 @@ Profile.propTypes = {
   tag: propTypes.string.isRequired,
   location: propTypes.string.isRequired,
   avatar: propTypes.string.isRequired,
-  stats: propTypes.objectOf(propTypes.number.isRequired),
+  stats: propTypes.shape({
+    followers: propTypes.number.isRequired,
+    views: propTypes.number.isRequired,
+    likes: propTypes.number.isRequired,
+  }).isRequired,
 };

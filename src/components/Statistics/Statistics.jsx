@@ -15,10 +15,10 @@ export const Statistics = ({ title, stats }) => {
       {title && <Title>{title}</Title>}
 
       <StatList>
-        {stats.map(stat => (
-          <StatListItem key={stat.id} id={stat.id} backgroundColor={setColor()}>
-            <StatLabel>{stat.label}</StatLabel>
-            <StatPercentage>{stat.percentage}%</StatPercentage>
+        {stats.map(({ id, label, percentage }) => (
+          <StatListItem key={id} id={id} backgroundColor={setColor()}>
+            <StatLabel>{label}</StatLabel>
+            <StatPercentage>{percentage}%</StatPercentage>
           </StatListItem>
         ))}
       </StatList>
@@ -28,8 +28,11 @@ export const Statistics = ({ title, stats }) => {
 
 Statistics.propTypes = {
   title: propTypes.string,
-  stat: propTypes.exact({
-    label: propTypes.string.isRequired,
-    percentage: propTypes.number.isRequired,
-  }),
+  stats: propTypes.arrayOf(
+    propTypes.shape({
+      id: propTypes.string.isRequired,
+      label: propTypes.string.isRequired,
+      percentage: propTypes.number.isRequired,
+    }).isRequired
+  ).isRequired,
 };
