@@ -12,7 +12,7 @@ import { Box } from '../Box';
 export const Statistics = ({ title, stats }) => {
   return (
     <Box mt={3} mx="auto" maxWidth={3} bg="secondary" borderRadius="normal">
-      <Title>{title}</Title>
+      {title && <Title>{title}</Title>}
 
       <StatList>
         {stats.map(stat => (
